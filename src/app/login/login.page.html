@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button size="small" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Access the account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar *ngIf="alertService.loading" type="indeterminate"></ion-progress-bar>
+
+  <form class="register-form" [formGroup]="form" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label color="medium" position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="submitted && f.email.errors?.required">
+      Email is required.
+    </span>
+    <span class="error ion-padding" *ngIf="submitted && f.email.errors?.email">
+      Invalid email.
+    </span>
+
+    <ion-item>
+      <ion-label color="medium" position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="submitted && f.password.errors?.required">
+      Password is required.
+    </span>
+
+    <ion-button type="submit" expand="block" shape="round">Sign in</ion-button>
+  </form>
+</ion-content>

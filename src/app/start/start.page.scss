@@ -1,0 +1,21 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 35px;
+}
+
+.logo {
+  margin-bottom: 20%;
+  width: 70%;
+  align-self: center;
+}
+
+ion-button {
+  margin-bottom: 15px;
+}
+
+ion-icon {
+  margin-right: 20px;
+}

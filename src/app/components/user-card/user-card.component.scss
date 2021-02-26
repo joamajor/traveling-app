@@ -1,0 +1,28 @@
+ion-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+ion-avatar {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+ion-card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+ion-card-content .item-data {
+    margin-right: 15px;
+}
+
+ion-card-content .item-data ion-text h3 {
+    font-size: 12px;
+}
+
+ion-button {
+    height: 32px;
+}

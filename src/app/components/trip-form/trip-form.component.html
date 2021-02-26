@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <ion-item>
+    <ion-label color="medium" position="stacked">Destination</ion-label>
+    <ion-input class="native-input" type="text" formControlName="destination" (ionFocus)="handleDestination()"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="submitted && f.destination.errors?.required">
+    Destination is required.
+  </span>
+
+  <ion-item>
+    <ion-label color="medium" position="stacked">Trip name</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="submitted && f.name.errors?.required">
+    Trip name is required.
+  </span>
+
+  <ion-item>
+    <ion-label color="medium" position="stacked">Start date</ion-label>
+    <ion-datetime formControlName="startDate" max="2099-10-31" display-timezone="utc"></ion-datetime>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="submitted && f.startDate.errors?.required">
+    Start date is required.
+  </span>
+
+  <ion-item>
+    <ion-label color="medium" position="stacked">End date</ion-label>
+    <ion-datetime formControlName="endDate" max="2099-10-31" display-timezone="utc"></ion-datetime>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="submitted && f.endDate.errors?.required">
+    End date is required.
+  </span>
+  <span class="error ion-padding" *ngIf="submitted && form.errors?.mustBeLater">
+    The end date must be greater than the start date.
+  </span>
+
+  <ion-item>
+    <ion-label color="medium" position="stacked">Description</ion-label>
+    <ion-textarea formControlName="description"></ion-textarea>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="submitted && f.description.errors?.maxlength">
+    Description cannot be longer than 100 characters.
+  </span>
+
+  <ion-button type="submit" expand="block" fill="outline" color="primary" shape="round">
+    Save
+  </ion-button>
+</form>

@@ -1,0 +1,23 @@
+<ion-card>
+  <img [src]="trip.picture | tripImage" />
+  <ion-card-header>
+    <ion-card-title>{{ trip.name }}</ion-card-title>
+    <ion-card-subtitle class="destination">{{ trip.destination }}</ion-card-subtitle>
+
+    <div class="schedule">
+      <div class="dates">
+        <ion-card-subtitle>
+          {{ trip.startDate | date: 'mediumDate'}} - {{ trip.endDate | date: 'mediumDate'}}
+        </ion-card-subtitle>
+      </div>
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+        {{ duration }} days
+      </div>
+    </div>
+  </ion-card-header>
+  
+  <ion-card-content>
+    {{ trip.description }}
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,39 @@
+<ion-card>
+  <ion-card-header>
+    <ion-avatar>
+      <img [src]="user.picture | userImage" />
+    </ion-avatar>
+    <ion-card-title>{{ user.username }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-chip color="primary">
+      <ion-label>0 Trips</ion-label>
+    </ion-chip>
+    <ion-chip color="primary">
+      <ion-label>0 Friends</ion-label>
+    </ion-chip>
+    
+    <ion-button 
+      *ngIf="activeAction" 
+      fill="outline" 
+      size="small" 
+      shape="round"
+      (click)="manageFriend()"
+      [disabled]="action === 'pending'"
+    >
+      {{ action | uppercase}}
+    </ion-button>
+
+    <ion-button 
+      *ngIf="action === 'confirm'"
+      color="danger"
+      fill="outline" 
+      size="small" 
+      shape="round"
+      
+    >
+      Remove
+    </ion-button>
+
+  </ion-card-content>
+</ion-card>
